@@ -15,15 +15,12 @@ public:
             else pivot_cnt++;
         }
 
-        sort(less.begin(), less.end(), std::greater<int>());
-        sort(greater.begin(), greater.end());
-
         int it;
         for (int i = 0; i < less.size(); i++) nums[i] = less[i];
         it = less.size();
         for (int i = it; i < it + pivot_cnt; i++) nums[i] = pivot;
         it += pivot_cnt;
-        for (int i = it; i < it + greater.size(); i++) nums[i] = greater[i];
+        for (int i = it; i < nums.size(); i++) nums[i] = greater[i - it];
 
         return nums;
     }
