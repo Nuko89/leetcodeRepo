@@ -16,8 +16,8 @@ public:
                     cnt++;
                 }
 
-                int gap = j - i;
-                if (cnt > gap / 2 + gap % 2) {
+                int gap = j - i + 1;
+                if (cnt > gap / 2) {
                     ans++;
                 }
             }
