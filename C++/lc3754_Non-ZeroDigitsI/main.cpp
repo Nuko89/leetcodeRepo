@@ -6,20 +6,19 @@ using namespace std;
 
 class Solution {
 public:
-    int removeCoveredIntervals(vector<vector<int>>& intervals) {
-        sort(intervals.begin(), intervals.end(), [](auto& a, auto& b) {
-            if (a[0] != b[0]) return a[0] < b[0];
-            return a[1] > b[1];
-        });
-
-        int cnt = 0, max_end = 0;
-        for (auto& iv : intervals) {
-            if (iv[1] > max_end) {
-                cnt++;
-                max_end = iv[1];
+    long long sumAndMultiply(int n) {
+        long long x;
+        long long sum = 0, nzero = 0, dgts = 1;
+        while (n > 0) {
+            x = n % 10;
+            if (x > 0) {
+                sum     += x;
+                nzero   += x * dgts;
+                dgts    *= 10;
             }
+            n       /= 10;
         }
-        
-        return cnt;
+
+        return nzero * sum;
     }
 };
