@@ -5,11 +5,13 @@ import java.util.Queue;
 
 public class lc3310 {
     public List<Integer> remainingMethods(int n, int k, int[][] invocations) {
+        int m = invocations.length;
+        
         List<List<Integer>> adj = new ArrayList<>();
         for (int i = 0; i < n; i++) {//set n nodes
             adj.add(new ArrayList<>());
         }
-        for (int i = 0; i < n; i++) {//add adj
+        for (int i = 0; i < m; i++) {//add adj
             adj.get(invocations[i][0]).add(invocations[i][1]);
         }
 
@@ -30,7 +32,7 @@ public class lc3310 {
 
         //Step 2 : check any external calls the sus collection
         List<Integer> res = new ArrayList<>();
-        for (int i = 0; i < n; i++) {//add adj
+        for (int i = 0; i < m; i++) {//add adj
             int a = invocations[i][0];
             int b = invocations[i][1];
             if (sus[b] && !sus[a]) {
@@ -47,4 +49,3 @@ public class lc3310 {
         return res;
     }
 }
-
